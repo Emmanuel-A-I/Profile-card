@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Igbede Arinze Emmanuel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #8b0000;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #dc143c;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #8b0000;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            background: #8b0000;
+            color: white;
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .about-content {
+            background: #121212;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #2a0f14;
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #1a1a1a;
+            border-radius: 8px;
+            border-left: 4px solid #dc143c;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section h2 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h2 i {
+            color: #dc143c;
+        }
+
+        .section p, .section ul {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        .section li::before {
+            content: "▸";
+            color: #dc143c;
+            position: absolute;
+            left: -10px;
+        }
+
+        .confidence-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .confidence-bar {
+            flex: 1;
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8b0000, #dc143c);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .confidence-text {
+            min-width: 80px;
+            font-size: 0.9rem;
+            color: #dc143c;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .nav-link {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Igbede Arinze Emmanuel</h1>
+            <p>My journey, goals, and reflections in the HNG Internship</p>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Profile Card</a>
+                <a href="about.html" class="nav-link">About Me</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+        </header>
+
+        <main data-testid="test-about-page" class="about-content">
+            <section class="section" data-testid="test-about-bio">
+                <h2><i class="fas fa-user"></i> My Journey</h2>
+                <p>
+                    I'm Igbede Arinze Emmanuel, a passionate full-stack developer from Nigeria with a strong foundation 
+                    in modern web technologies. My journey into tech began with curiosity about how websites work, which 
+                    quickly evolved into a deep passion for creating digital solutions that solve real-world problems.
+                </p>
+                <p>
+                    Over the years, I've dedicated myself to mastering both frontend and backend technologies, with 
+                    particular interest in JavaScript ecosystems. What drives me is the ability to transform complex 
+                    challenges into elegant, user-friendly applications that make a positive impact.
+                </p>
+            </section>
+
+            <section class="section" data-testid="test-about-goals">
+                <h2><i class="fas fa-bullseye"></i> Goals in This Program</h2>
+                <p>Through the HNG Internship, I aim to achieve the following objectives:</p>
+                <ul>
+                    <li>Master advanced React patterns and state management techniques for building scalable applications</li>
+                    <li>Develop expertise in building production-ready, performant web applications</li>
+                    <li>Enhance my collaboration skills through team projects and peer code reviews</li>
+                    <li>Learn industry best practices for testing, deployment, and continuous integration</li>
+                    <li>Build a strong professional network with experienced developers and like-minded peers</li>
+                    <li>Contribute meaningfully to open-source projects and team deliverables</li>
+                    <li>Gain practical experience that will accelerate my transition into a professional developer role</li>
+                </ul>
+            </section>
+
+            <section class="section" data-testid="test-about-confidence">
+                <h2><i class="fas fa-chart-line"></i> Areas of Growth & Confidence Levels</h2>
+                <p>I believe in continuous improvement and here's where I'm currently focusing my learning efforts:</p>
+                
+                <div class="confidence-level">
+                    <span>HTML/CSS</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 99%"></div>
+                    </div>
+                    <span class="confidence-text">Very Confident</span>
+                </div>
+                
+                <div class="confidence-level">
+                    <span>JavaScript</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="confidence-text">Confident</span>
+                </div>
+                
+                <div class="confidence-level">
+                    <span>React.js</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="confidence-text">Beginner</span>
+                </div>
+                
+                <div class="confidence-level">
+                    <span>Node.js/Backend</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="confidence-text">Beginne</span>
+                </div>
+                
+                <div class="confidence-level">
+                    <span>DevOps & Deployment</span>
+                    <div class="confidence-bar">
+                        <div class="confidence-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="confidence-text">Beginne</span>
+                </div>
+            </section>
+
+            <section class="section" data-testid="test-about-future-note">
+                <h2><i class="fas fa-envelope-open-text"></i> Note to My Future Self</h2>
+                <p>
+                    Dear Future Arinze, as you read this, remember the determination and excitement you felt starting 
+                    the HNG Internship. The challenges you're facing now - the debugging sessions, the moments of 
+                    uncertainty, the breakthroughs - are all shaping you into the developer you're becoming.
+                </p>
+                <p>
+                    Never lose the curiosity that brought you here. Continue learning, keep building, and remember 
+                    that consistent effort compounds into remarkable growth. The skills you're developing today 
+                    are building the foundation for your future success.
+                </p>
+                <p>
+                    Stay humble in your achievements and generous in helping others. Your journey is unique, and 
+                    every step forward, no matter how small, is progress worth celebrating.
+                </p>
+            </section>
+
+            <section class="section" data-testid="test-about-extra">
+                <h2><i class="fas fa-lightbulb"></i> Additional Reflections</h2>
+                <p>
+                    One fundamental realization in my development journey is that technical skills alone don't make 
+                    a great developer. The ability to communicate clearly, collaborate effectively, and understand 
+                    user needs are equally crucial. These soft skills transform good code into great products.
+                </p>
+                <p>
+                    The collaborative environment of HNG particularly excites me. Working on real projects with 
+                    deadlines and team dependencies will push me to grow not just technically, but also in project 
+                    management, communication, and problem-solving under pressure.
+                </p>
+                <p>
+                    As part of Nigeria's growing tech community, I'm committed to contributing to our local ecosystem 
+                    while building global competence. This internship represents a significant milestone in my journey 
+                    to become a developer who can create solutions that address both local challenges and global opportunities.
+                </p>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Add animation to confidence bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const confidenceBars = document.querySelectorAll('.confidence-fill');
+            confidenceBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

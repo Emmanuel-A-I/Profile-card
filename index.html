@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Profile Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .profile-card {
+            background: #121212;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.15);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            padding: 30px;
+            border: 1px solid #2a0f14;
+            position: relative;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #8b0000, #dc143c, #8b0000);
+        }
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #2a0f14;
+        }
+
+        @media (min-width: 768px) {
+            .profile-header {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .avatar-container {
+            margin-right: 0;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .avatar-container {
+                margin-right: 30px;
+                margin-bottom: 0;
+            }
+        }
+
+        .avatar-frame {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #121212;
+        }
+
+        .avatar-caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+        }
+
+        .profile-info {
+            flex: 1;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .profile-info {
+                text-align: left;
+            }
+        }
+
+        .user-name {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+        }
+
+        .user-bio {
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .user-time {
+            background-color: #1a0a0a;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: inline-block;
+            color: #dc143c;
+            border: 1px solid #2a0f14;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            margin: 20px 0;
+        }
+
+        .social-links-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            list-style: none;
+        }
+
+        @media (min-width: 768px) {
+            .social-links-list {
+                justify-content: flex-start;
+            }
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: linear-gradient(135deg, #8b0000, #a52a2a);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #2a0f14;
+        }
+
+        .social-link:hover, .social-link:focus {
+            background: linear-gradient(135deg, #a52a2a, #dc143c);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+            outline: none;
+        }
+
+        .social-link i {
+            font-size: 1.1rem;
+        }
+
+        .hobbies-dislikes {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        @media (min-width: 600px) {
+            .hobbies-dislikes {
+                flex-direction: row;
+            }
+        }
+
+        .hobbies-section, .dislikes-section {
+            flex: 1;
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #2a0f14;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #8b0000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: #dc143c;
+        }
+
+        .list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-item {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            background: #252525;
+            border-radius: 8px;
+            border-left: 3px solid #dc143c;
+            transition: transform 0.2s;
+        }
+
+        .list-item:hover {
+            transform: translateX(5px);
+            background: #2a2a2a;
+        }
+
+        .list-item::before {
+            content: "•";
+            color: #dc143c;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 10px;
+        }
+
+        /* Animation for time update */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .profile-card {
+                padding: 20px 15px;
+            }
+            
+            .avatar-frame {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .user-name {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- my HNG internship level 0 task -->
+    <article class="profile-card" data-testid="test-profile-card">
+        <header class="profile-header">
+            
+            <figure class="avatar-container">
+                <div class="avatar-frame">
+                    <img 
+                        src="Emmanuel.jpg" 
+                        alt="Profile photo of Emmanuel Arinze" 
+                        class="avatar"
+                        data-testid="test-user-avatar"
+                    >
+                </div>
+                <figcaption class="avatar-caption">Front-end developer</figcaption>
+            </figure>
+            
+            <div class="profile-info">
+                <h2 class="user-name" data-testid="test-user-name">Igbede Emmanuel Arinze</h2>
+                <p class="user-bio" data-testid="test-user-bio">
+                    Passionate Front-end developer with 2+ years of experience building scalable web applications. 
+                    Enjoys solving complex problems and 
+                    creating elegant, user-friendly solutions. Open source contributor and tech community advocate.
+                </p>
+                <div class="user-time" data-testid="test-user-time"></div>
+                
+                <nav class="social-links" aria-label="Social media links">
+                    <ul class="social-links-list" data-testid="test-user-social-links">
+                        <li>
+                            <a 
+                                href="https://github.com/Emmanuel-A-I" 
+                                class="social-link" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                data-testid="test-user-social-github"
+                            >
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                href="https://www.linkedin.com/in/easyworldtech" 
+                                class="social-link" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                data-testid="test-user-social-linkedin"
+                            >
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a 
+                                href="https://x.com/EasyTech_101" 
+                                class="social-link" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                data-testid="test-user-social-twitter"
+                            >
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                        </li>
+                    
+
+   <li>
+            <a 
+                href="about.html" 
+                class="social-link" 
+                data-testid="test-user-social-about"
+            >
+                <i class="fas fa-user"></i> About me
+            </a>
+        </li>
+<li>
+    <a 
+        href="contact.html" 
+        class="social-link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        data-testid="test-user-social-twitter"
+    >
+        <i class="fas fa-envelope"></i> Contact me
+    </a>
+</li>
+
+
+
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        
+        <div class="hobbies-dislikes">
+            <section class="hobbies-section">
+                <h3 class="section-title">
+                    <i class="fas fa-heart"></i> Hobbies
+                </h3>
+                <ul class="list" data-testid="test-user-hobbies">
+                    <li class="list-item">Photography & Digital Art</li>
+                    <li class="list-item">Hiking & Outdoor Adventures</li>
+                    <li class="list-item">Reading Sci-Fi Novels</li>
+                    <li class="list-item">Open Source Contributions</li>
+                  
+                </ul>
+            </section>
+            
+            <section class="dislikes-section">
+                <h3 class="section-title">
+                    <i class="fas fa-thumbs-down"></i> Dislikes
+                </h3>
+                <ul class="list" data-testid="test-user-dislikes">
+                    <li class="list-item">Poorly Documented Code</li>
+                    <li class="list-item">Traffic Jams & Long Commutes</li>
+                    <li class="list-item">Meetings Without Agendas</li>
+                    <li class="list-item">Slow Internet Connections</li>
+                </ul>
+            </section>
+        </div>
+    </article>
+
+    <script>
+        // Update time in milliseconds
+        function updateTime() {
+            const timeElement = document.querySelector('[data-testid="test-user-time"]');
+            const currentTime = Date.now();
+            
+            // Add animation class
+            timeElement.classList.add('pulse');
+            
+            // Update text
+            timeElement.textContent = currentTime;
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                timeElement.classList.remove('pulse');
+            }, 500);
+        }
+        
+        // the Initial update
+        updateTime();
+        
+        //this code  Updates time every second
+        setInterval(updateTime, 1000);
+        
+        //this code Adds hover effect to profile card
+        const profileCard = document.querySelector('[data-testid="test-profile-card"]');
+        
+        profileCard.addEventListener('mouseenter', () => {
+            profileCard.style.transform = 'translateY(-5px)';
+            profileCard.style.boxShadow = '0 15px 35px rgba(220, 20, 60, 0.25)';
+        });
+        
+        profileCard.addEventListener('mouseleave', () => {
+            profileCard.style.transform = 'translateY(0)';
+            profileCard.style.boxShadow = '0 10px 30px rgba(220, 20, 60, 0.15)';
+        });
+    </script>
+</body>
+</html>
